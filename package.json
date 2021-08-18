@@ -1,0 +1,27 @@
+{
+  "name": "githubaction-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "clean": "rimraf bin/*.{js,d.ts} lib/*.{js,d.ts} lib/**/*.{js,d.ts} lib/**/**/*.{js,d.ts} test/*.{js,d.ts}",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/susumutomita/githubaction-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/susumutomita/githubaction-test/issues"
+  },
+  "homepage": "https://github.com/susumutomita/githubaction-test#readme",
+  "devDependencies": {
+    "@types/node": "^16.6.1",
+    "tslint": "^6.1.3",
+    "typescript": "^4.3.5"
+  }
+}
