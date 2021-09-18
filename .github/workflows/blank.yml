@@ -1,15 +1,17 @@
 name: 'build-test'
-on:
-  workflow_dispatch:
+# on:
+#   workflow_dispatch:
   
-# on: # rebuild any PRs and main branch changes
-#   pull_request:
-#   push:
-#     branches:
-#       - 'releases/*'
+on: # rebuild any PRs and main branch changes
+  pull_request:
+  push:
+    branches:
+      - 'releases/*'
+      - 'main'
 jobs:
   build: # make sure build/ci work properly
     runs-on: ubuntu-latest
+    container: node:10.16-jessie
     env:
       SECRET_V: ${{ secrets.SECRET_V }}
     steps:
