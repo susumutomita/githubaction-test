@@ -1,11 +1,12 @@
 name: 'build-test'
-on: # rebuild any PRs and main branch changes
-  pull_request:
-  push:
-    branches:
-      - main
-      - 'releases/*'
-      - 'develop'
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+
 jobs:
   build: # make sure build/ci work properly
     runs-on: ubuntu-latest
