@@ -1,0 +1,21 @@
+name: 'build-test'
+on: # rebuild any PRs and main branch changes
+  pull_request:
+  push:
+    branches:
+      - main
+      - 'releases/*'
+      - 'develop'
+jobs:
+  build: # make sure build/ci work properly
+    runs-on: ubuntu-latest
+    env:
+      SECRET_V: ${{ secrets.SECRET_V }}
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          npm install
+      - run: |
+          npm run build
+      - run: |
+          env
