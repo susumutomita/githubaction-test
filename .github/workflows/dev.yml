@@ -1,4 +1,4 @@
-name: 'build-test'
+name: 'p-test'
 on:
   workflow_dispatch:
     inputs:
@@ -8,15 +8,9 @@ on:
         default: 'warning'
 
 jobs:
-  build: # make sure build/ci work properly
+  printInputs:
     runs-on: ubuntu-latest
-    env:
-      SECRET_V: ${{ secrets.SECRET_V }}
     steps:
-      - uses: actions/checkout@v2
-      - run: |
-          npm install
-      - run: |
-          npm run build
-      - run: |
-          env
+    - run: |
+        echo "Log level: ${{ github.event.inputs.logLevel }}"
+        echo "Tags: ${{ github.event.inputs.tags }}"
