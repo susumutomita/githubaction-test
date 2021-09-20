@@ -22,4 +22,5 @@ jobs:
           npm install
           npm run build
           env
-      - run: echo $SECRET_W
+      - run: echo ${{ env.SECRET_W }}
+
