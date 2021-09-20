@@ -8,6 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          tagname=`date '+%Y/%m/%d'`
+          time=`date '+%Y/%m/%d'`
+          tagname="release/${time}"
           git tag ${tagname}
           git push origin ${tagname}
