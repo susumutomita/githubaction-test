@@ -3,7 +3,6 @@ name: 'build-test'
 #   workflow_dispatch:
 
 on: # rebuild any PRs and main branch changes
-  pull_request:
   push:
     branches:
       - 'releases/*'
