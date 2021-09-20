@@ -1,10 +1,10 @@
 name: Git Tag
-on:
- pull_request:
-   branches:
-     - main
-   types:
-     - closed
+on: # rebuild any PRs and main branch changes
+  workflow_dispatch:
+  push:
+    branches:
+      - 'releases/*'
+      - 'main'
 jobs:
  main:
    runs-on: ubuntu-latest

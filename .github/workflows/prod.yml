@@ -1,6 +1,7 @@
 name: 'p-test-prod'
 
 on: # rebuild any PRs and main branch changes
+  workflow_dispatch:
   push:
     branches:
       - 'releases/*'
