@@ -1,17 +1,16 @@
 name: Git Tag
 on:
- pull_request:
-   branches:
-     - main
-   types:
-     - closed
+  push:
+    branches:
+      - 'releases/*'
+      - 'main'
 jobs:
- main:
-   runs-on: ubuntu-latest
-   if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'release/')
-   steps:
-     - uses: actions/checkout@v2
-     - run: git fetch origin ${{ github.event.pull_request.head.ref }}
-     - run: git checkout ${{ github.event.pull_request.head.ref }}
-     - run: git tag `echo '${{ github.event.pull_request.head.ref }}' | sed 's/release\///'`
-     - run: git push origin `echo '${{ github.event.pull_request.head.ref }}' | sed 's/release\///'`
+  main:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'release/')
+    steps:
+      - uses: actions/checkout@v2
+      - run: git fetch origin ${{ github.event.pull_request.head.ref }}
+      - run: git checkout ${{ github.event.pull_request.head.ref }}
+      - run: git tag `echo '${{ github.event.pull_request.head.ref }}' | sed 's/release\///'`
+      - run: git push origin `echo '${{ github.event.pull_request.head.ref }}' | sed 's/release\///'`
