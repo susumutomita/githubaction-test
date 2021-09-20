@@ -1,11 +1,13 @@
 name: Git Tag
 on: # rebuild any PRs and main branch changes
   workflow_dispatch:
+
 jobs:
   main:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: tagname=`date '+%Y/%m/%d'`
-      - run: git tag ${tagname}
-      - run: git push origin {tagname}
+      - run: |
+        tagname=`date '+%Y/%m/%d'`
+        git tag ${tagname}
+        git push origin ${tagname}
