@@ -8,6 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-        tagname=`date '+%Y/%m/%d'`
-        git tag ${tagname}
-        git push origin ${tagname}
+          tagname=`date '+%Y/%m/%d'`
+          git tag ${tagname}
+          git push origin ${tagname}
