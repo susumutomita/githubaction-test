@@ -1,0 +1,16 @@
+name: 'p-test-prod'
+
+on: # rebuild any PRs and main branch changes
+  push:
+    branches:
+      - 'releases/*'
+      - 'main'
+
+jobs:
+  printInputsProd:
+    runs-on: ubuntu-latest
+    needs: [printInputs]
+    steps:
+    - run: |
+        echo "Log level: ${{ github.event.inputs.logLevel }}"
+        echo "Tags: ${{ github.event.inputs.tags }}"
