@@ -7,6 +7,11 @@ on: # rebuild any PRs and main branch changes
       - 'main'
 
 jobs:
+  hoge:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "fromprod"
   printInputsProd:
     runs-on: ubuntu-latest
     needs: [printInputs]
